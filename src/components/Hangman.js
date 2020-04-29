@@ -49,7 +49,10 @@ class Hangman extends Component {
 
   render() {
     const hangmanStyles = {
-      marginTop: '2%'
+      marginTop: '2%',
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center'
     }
 
     const gameOver = this.state.mistake >= this.props.maxWrongGuesses;
@@ -63,22 +66,26 @@ class Hangman extends Component {
     }
 
     const imgStyles = {
-      height: '40vh',
+      height: '50vh',
       width: 'auto'
     }
 
     return (
       <React.Fragment>
         <Container style={hangmanStyles}>
-          <p>incorrect guesses: {this.state.mistake} of {this.props.maxWrongGuesses}</p>
-          <img style={imgStyles} src={this.props.images[this.state.mistake]} alt="current state of hangman"></img>
-          <p>Guess the word:</p>
-          <p>
-            {!gameOver ? this.guessedWord() : this.state.answer}
-          </p>
-          <LetterList onLetterClick={this.handleGuess} />
-          <p>{gameStatus}</p>
-          <Button variant="outline-info" onClick={this.resetGame}>Restart game</Button>
+          <div>
+            <img style={imgStyles} src={this.props.images[this.state.mistake]} alt="current state of hangman"></img>
+          </div>
+          <div>
+            <p>incorrect guesses: {this.state.mistake} of {this.props.maxWrongGuesses}</p>
+            <p>Guess the word:</p>
+            <p>
+              {!gameOver ? this.guessedWord() : this.state.answer}
+            </p>
+            <LetterList onLetterClick={this.handleGuess} />
+            <p>{gameStatus}</p>
+            <Button variant="outline-info" onClick={this.resetGame}>Restart game</Button>
+          </div>
         </Container>
       </React.Fragment>
     );
