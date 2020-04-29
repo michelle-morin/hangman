@@ -70,6 +70,11 @@ class Hangman extends Component {
       width: 'auto'
     }
 
+    const winStyles = {
+      color: '#17a2b8',
+      fontSize: '3em'
+    }
+
     return (
       <React.Fragment>
         <Container style={hangmanStyles}>
@@ -83,7 +88,7 @@ class Hangman extends Component {
               {!gameOver ? this.guessedWord() : this.state.answer}
             </p>
             <LetterList onLetterClick={this.handleGuess} />
-            <p>{gameStatus}</p>
+            <p style={winStyles}>{gameStatus}</p>
             <Button variant="outline-info" onClick={this.resetGame}>Restart game</Button>
           </div>
         </Container>
