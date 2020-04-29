@@ -1,6 +1,6 @@
 import letterListReducer from '../../reducers/letter-list-reducer';
 import mistakeCountReducer from '../../reducers/mistake-counter-reducer';
-import answerReducer from '../../reducers/answer-reducer';
+import { masterWordList } from '../../components/WordList';
 import rootReducer from '../../reducers/index';
 import { createStore } from 'redux';
 
@@ -17,4 +17,28 @@ describe('rootReducer', ()=> {
     });
   });
 
+  test('check that modified state of mistakeCountReducer matches rootReducer', ()=> {
+    action = {
+      type: 'ADD_MISTAKE'
+    };
+    store.dispatch(action);
+    expect(store.getState().mistake).toEqual(mistakeCountReducer(undefined, action));
+  });
+
+  test('check that modified state of letterListReducer matches rootReducer', ()=> {
+    action = {
+      type: 'ADD_GUESS',
+      value: 'e'
+    };
+    store.dispatch(action);
+    expect(store.getState().guessed).toEqual(letterListReducer(undefined, action));
+  });
+
+  test('check that modified state of answerReducer matches rootReducer', ()=> {
+    action = {
+      type: 'SET_ANSWER'
+    };
+    store.dispatch(action);
+    expect(masterWordList.includes(store.getState().answer)).toBe(true);
+  });
 });
