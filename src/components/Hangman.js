@@ -66,7 +66,7 @@ class Hangman extends Component {
     }
 
     const imgStyles = {
-      height: '50vh',
+      height: '75vh',
       width: 'auto'
     }
 
