@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Hangman
 
-## Available Scripts
+#### By: Michelle Morin, Geoff Goetz, Jeremey Kale Padot April 29-30, 2020
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+_This application is a simple hangman game, built using React and Redux._
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Component Tree / Wireframe
+![component tree](componenttree.jpg)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Specification User Stories
+* As a user, I want to be able to guess a letter of a word.
+* As a user, I want only letters than I haven't guessed to be shown as options.
+* As a user, I want my incorrectly guessed letters to add a new body part to the hangman.
+* As a user, I want to be notified if I correctly guess the word.
+* As a user, I want to be notified when I lose.
+* As a user, I want to be able to restart the game when I win or lose.
 
-### `npm test`
+## Setup/Installation Requirements
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Node install
 
-### `npm run build`
+###### For macOS:
+_If Homebrew is not installed on your computer already, then install Homebrew by entering the following two commands in Terminal:_
+* ``/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)``
+* ``echo 'export PATH=/usr/local/bin:$PATH' >> ~/.bash_profile``
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+_Install Git by entering the following command in Terminal:_
+* ``brew install git``
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+_Next, install Node.js by entering the following command in Terminal:_
+* ``brew install node``
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###### For Windows:
+_Please visit the [Node.js website](https://nodejs.org/en/download/) for installation instructions._
 
-### `npm run eject`
+#### Install this application
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_Clone this repository via Terminal using the following commands:_
+* ``cd desktop``
+* ``git clone {url to this repo}``
+* ``cd hangman``
+_Confirm that you have navigated to the hangman project directory (e.g., by entering ``pwd`` in Terminal)._
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_Next, install npm at the project's root directory by entering the following commands in Terminal (macOS) or PowerShell (Windows):_
+* ``npm install``
+* ``npm start``
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+_Open the contents of the directory in a text editor or IDE of your choice (e.g., to open the contents of the directory in Visual Studio Code on macOS, enter the command ``code .`` in Terminal)._
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Technologies Used
 
-## Learn More
+* Git
+* JavaScript
+* npm
+* Webpack
+* React
+* Redux
+* React-Redux
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### License
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[MIT](https://choosealicense.com/licenses/mit/)
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Copyright &copy; 2020 **_Michelle Morin, Geoff Goetz, Jeremey Kale Padot_** 
