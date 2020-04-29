@@ -1,4 +1,4 @@
-const masterWordList = [
+export const masterWordList = [
   'pacific',
   'northwest',
   'oregon',
