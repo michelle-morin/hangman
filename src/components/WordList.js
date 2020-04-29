@@ -1,6 +1,6 @@
-export const masterWordList = [
-  'hello world',
+const masterWordList = [
   'pacific',
+  'northwest',
   'oregon',
   'mission',
   'popcorn',
@@ -10,3 +10,8 @@ export const masterWordList = [
   'hibiscus',
   'cider'
 ];
+
+export function randomWord() {
+  const random = Math.floor((Math.random() * masterWordList.length));
+  return masterWordList[random];
+};
