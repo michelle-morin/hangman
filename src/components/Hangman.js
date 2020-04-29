@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import { randomWord } from './WordList.js';
 import { Button, Container } from 'react-bootstrap';
 import LetterList from './LetterList.js';
-// import step0 from '../img/0.jpg';
-// import step1 from '../img/1.jpg';
-// import step2 from '../img/2.jpg';
-// import step3 from '../img/3.jpg';
-// import step4 from '../img/4.jpg';
-// import step5 from '../img/5.jpg';
-// import step6 from '../img/6.jpg';
+import step0 from '../img/0.png';
+import step1 from '../img/1.png';
+import step2 from '../img/2.png';
+import step3 from '../img/3.png';
+import step4 from '../img/4.png';
+import step5 from '../img/5.png';
+import step6 from '../img/6.png';
 
 class Hangman extends Component {
 
   static defaultProps = {
     maxWrongGuesses: 6,
-    // images: [step0, step1, step2, step3, step4, step5, step6]
+    images: [step0, step1, step2, step3, step4, step5, step6]
   };
 
   constructor(props) {
@@ -62,17 +62,22 @@ class Hangman extends Component {
       gameStatus = "You lose!"
     }
 
+    const imgStyles = {
+      height: '40vh',
+      width: 'auto'
+    }
+
     return (
       <React.Fragment>
         <Container style={hangmanStyles}>
           <p>incorrect guesses: {this.state.mistake} of {this.props.maxWrongGuesses}</p>
-          {/* <img src={this.props.images[this.state.mistake]} alt="current state of hangman"></img> */}
+          <img style={imgStyles} src={this.props.images[this.state.mistake]} alt="current state of hangman"></img>
           <p>Guess the word:</p>
           <p>
             {!gameOver ? this.guessedWord() : this.state.answer}
           </p>
           <LetterList onLetterClick={this.handleGuess} />
-          {gameStatus}
+          <p>{gameStatus}</p>
           <Button variant="outline-info" onClick={this.resetGame}>Restart game</Button>
         </Container>
       </React.Fragment>
