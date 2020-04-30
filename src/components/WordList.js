@@ -43,7 +43,6 @@ export const masterWordList = [
   'electroconvulsive',
   'dysphagia',
   'cricothyrotomy'
-
 ];
 
 export function randomWord() {

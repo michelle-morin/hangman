@@ -47,7 +47,7 @@ function LetterList(props) {
     <React.Fragment>
       <div style={letterStyles}>
         {Object.keys(masterLetterList).map((key) => 
-          <Letter currentLetter={masterLetterList[key]} whenLetterClicked={props.onLetterClick} id={key} />
+          <Letter currentLetter={masterLetterList[key]} whenLetterClicked={props.onLetterClick} key={key} id={key} />
         )}
       </div>
     </React.Fragment>

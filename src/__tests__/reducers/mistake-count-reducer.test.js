@@ -9,7 +9,8 @@ describe('mistakeCountReducer', ()=> {
 
   test('should add 1 to mistake counter', () => {
     const action = {
-      type: c.ADD_MISTAKE
+      type: c.ADD_MISTAKE,
+      value: 1
     };
     expect(mistakeCountReducer(0, action)).toEqual(1);
   });

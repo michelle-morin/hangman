@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { images } from './HangmanImages';
 import LetterList from './LetterList.js';
@@ -8,20 +8,22 @@ import * as a from './../actions';
 
 function Hangman(props) {
 
+  useEffect(() => {
+    console.log("in use effect");
+    guessedWord();
+  });
+
   const { dispatch } = props;
 
   function guessedWord(){
-    // display either letter if the letter was guessed, or display underscore.
     return props.answer.split("").map(letter => (props.guessed.has(letter) ? letter : " _ "));
-  }
+  };
 
-  const handleGuess = (value) => {
-    const action = a.addGuess(value);
-    dispatch(action);
-    if (props.answer.includes(value) === false) {
-      const actionTwo = a.addMistake();
-      dispatch(actionTwo);
-    }
+  const handleGuess = (letter) => {
+    const actionOne = a.addGuess(letter);
+    dispatch(actionOne);
+    const actionTwo = props.answer.includes(letter) ? a.addMistake(0) : a.addMistake(1);
+    dispatch(actionTwo);
   };
 
   const resetGame = () => {
@@ -40,14 +42,15 @@ function Hangman(props) {
     alignItems: 'center'
   }
 
-  const gameOver = props.mistake >= 6;
   const isWinner = guessedWord().join("") === props.answer;
+  const gameOverLost = (props.mistake >= 6);
+  const gameOver = gameOverLost || isWinner;
 
   let gameStatus;
   if (isWinner) {
     gameStatus = "You won!"
   }
-  if (gameOver) {
+  if (gameOverLost) {
     gameStatus = "You lost!"
   }
 
@@ -70,10 +73,8 @@ function Hangman(props) {
         <div>
           <p>incorrect guesses: {props.mistake} of 6</p>
           <p>Guess the word:</p>
-          <p>
-            {!gameOver ? guessedWord() : props.answer}
-          </p>
-          <LetterList onLetterClick={handleGuess} />
+          <p>{!gameOver ? guessedWord() : props.answer}</p>
+          {!gameOver ? <LetterList onLetterClick={handleGuess} /> : <p>GAME OVER</p>}
           <p style={winStyles}>{gameStatus}</p>
           <Button variant="outline-info" onClick={resetGame}>Restart game</Button>
         </div>

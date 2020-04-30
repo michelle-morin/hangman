@@ -20,7 +20,8 @@ describe('rootReducer', ()=> {
 
   test('check that modified state of mistakeCountReducer matches rootReducer', ()=> {
     action = {
-      type: c.ADD_MISTAKE
+      type: c.ADD_MISTAKE,
+      value: 1
     };
     store.dispatch(action);
     expect(store.getState().mistake).toEqual(mistakeCountReducer(undefined, action));
