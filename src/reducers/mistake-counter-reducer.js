@@ -5,6 +5,7 @@ export default (state = 0, action) => {
       return updateMistakeCount;
     case 'RESET_MISTAKES':
       return 0;
+    default:
+      return state;
   }
-    return state;
 };
