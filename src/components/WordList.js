@@ -24,7 +24,26 @@ export const masterWordList = [
   'carpet',
   'princess',
   'coronavirus',
-  'pokemon'
+  'pokemon',
+  'rhythm',
+  'blooms',
+  'festival',
+  'autumn',
+  'zephyr',
+  'wicker',
+  'gnat',
+  'oryx',
+  'zigzag',
+  'hippopotamus',
+  'qiviut',
+  'xebec',
+  'bdellium',
+  'paradox',
+  'dermatoglyphics',
+  'electroconvulsive',
+  'dysphagia',
+  'cricothyrotomy'
+
 ];
 
 export function randomWord() {
