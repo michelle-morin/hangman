@@ -9,6 +9,7 @@ import step3 from '../img/3.png';
 import step4 from '../img/4.png';
 import step5 from '../img/5.png';
 import step6 from '../img/6.png';
+import { connect } from 'react-redux';
 
 class Hangman extends Component {
 
@@ -96,5 +97,7 @@ class Hangman extends Component {
     );
   }
 }
+
+Hangman = connect()(Hangman);
 
 export default Hangman;
