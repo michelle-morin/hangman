@@ -9,7 +9,22 @@ export const masterWordList = [
   'flower',
   'hibiscus',
   'cider',
-  'haru'
+  'alphabet',
+  'sassafras',
+  'coding',
+  'javascript',
+  'computer',
+  'blanket',
+  'boom',
+  'cabinet',
+  'mug',
+  'begonia',
+  'planter',
+  'bucket',
+  'carpet',
+  'princess',
+  'coronavirus',
+  'pokemon'
 ];
 
 export function randomWord() {
