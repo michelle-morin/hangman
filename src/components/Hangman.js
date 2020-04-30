@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button, Container } from 'react-bootstrap';
 import { images } from './HangmanImages';
 import LetterList from './LetterList.js';
@@ -6,27 +6,32 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as a from './../actions';
 
-function Hangman(props) {
-
-  useEffect(() => {
-    console.log("in use effect");
-    guessedWord();
-  });
-
-  const { dispatch } = props;
-
-  function guessedWord(){
-    return props.answer.split("").map(letter => (props.guessed.has(letter) ? letter : " _ "));
+class Hangman extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      correctGuesses: 0
+    }
+  }
+  
+  guessedWord(){
+    return this.props.answer.split("").map(letter => (this.props.guessed.has(letter) ? letter : " _ "));
   };
 
-  const handleGuess = (letter) => {
+  handleGuess = (letter) => {
+    const { dispatch } = this.props;
     const actionOne = a.addGuess(letter);
     dispatch(actionOne);
-    const actionTwo = props.answer.includes(letter) ? a.addMistake(0) : a.addMistake(1);
+    const actionTwo = this.props.answer.includes(letter) ? a.addMistake(0) : a.addMistake(1);
     dispatch(actionTwo);
+    if (this.props.answer.includes(letter)) {
+      const updatedCount = this.state.correctGuesses + 1;
+      this.setState({correctGuesses: updatedCount});
+    }
   };
 
-  const resetGame = () => {
+  resetGame = () => {
+    const { dispatch } = this.props;
     const action = a.resetMistakes();
     dispatch(action);
     const actionTwo = a.resetGuesses();
@@ -35,52 +40,54 @@ function Hangman(props) {
     dispatch(actionThree);
   }
 
-  const hangmanStyles = {
-    marginTop: '2%',
-    display: 'flex',
-    justifyContent: 'space-around',
-    alignItems: 'center'
-  }
+  render(){
+    const isWinner = this.guessedWord().join("") === this.props.answer;
 
-  const isWinner = guessedWord().join("") === props.answer;
-  const gameOverLost = (props.mistake >= 6);
-  const gameOver = gameOverLost || isWinner;
+    const gameOverLost = this.props.mistake >= 6;
 
-  let gameStatus;
-  if (isWinner) {
-    gameStatus = "You won!"
-  }
-  if (gameOverLost) {
-    gameStatus = "You lost!"
-  }
+    const gameOver = isWinner || gameOverLost;
 
-  const imgStyles = {
-    height: '75vh',
-    width: 'auto'
-  }
+    let gameStatus;
+    if (isWinner) {
+      gameStatus = "You won!";
+    }
+    if (gameOverLost) {
+      gameStatus = "You lost!";
+    }
 
-  const winStyles = {
-    color: '#17a2b8',
-    fontSize: '3em'
-  }
+    const imgStyles = {
+      height: '75vh',
+      width: 'auto'
+    };
+    const winStyles = {
+      color: '#17a2b8',
+      fontSize: '3em'
+    };
+    const hangmanStyles = {
+      marginTop: '2%',
+      display: 'flex',
+      justifyContent: 'space-around',
+      alignItems: 'center'
+    };
 
-  return (
-    <React.Fragment>
-      <Container style={hangmanStyles}>
-        <div>
-          <img style={imgStyles} src={images[props.mistake]} alt="current state of hangman"></img>
-        </div>
-        <div>
-          <p>incorrect guesses: {props.mistake} of 6</p>
-          <p>Guess the word:</p>
-          <p>{!gameOver ? guessedWord() : props.answer}</p>
-          {!gameOver ? <LetterList onLetterClick={handleGuess} /> : <p>GAME OVER</p>}
-          <p style={winStyles}>{gameStatus}</p>
-          <Button variant="outline-info" onClick={resetGame}>Restart game</Button>
-        </div>
-      </Container>
-    </React.Fragment>
-  );
+    return (
+      <React.Fragment>
+        <Container style={hangmanStyles}>
+          <div>
+            <img style={imgStyles} src={images[this.props.mistake]} alt="current state of hangman"></img>
+          </div>
+          <div>
+            <p>incorrect guesses: {this.props.mistake} of 6</p>
+            <p>Guess the word:</p>
+            <p>{!gameOver ? this.guessedWord() : this.props.answer}</p>
+            {!gameOver ? <LetterList onLetterClick={this.handleGuess} /> : <p>GAME OVER</p>}
+            <p style={winStyles}>{gameStatus}</p>
+            <Button variant="outline-info" onClick={this.resetGame}>Restart game</Button>
+          </div>
+        </Container>
+      </React.Fragment>
+    );
+  }
 }
 
 Hangman.propTypes = {
