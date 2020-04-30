@@ -3,6 +3,7 @@ import mistakeCountReducer from '../../reducers/mistake-counter-reducer';
 import { masterWordList } from '../../components/WordList';
 import rootReducer from '../../reducers/index';
 import { createStore } from 'redux';
+import * as c from '../../actions/ActionTypes';
 
 let store = createStore(rootReducer);
 
@@ -19,7 +20,7 @@ describe('rootReducer', ()=> {
 
   test('check that modified state of mistakeCountReducer matches rootReducer', ()=> {
     action = {
-      type: 'ADD_MISTAKE'
+      type: c.ADD_MISTAKE
     };
     store.dispatch(action);
     expect(store.getState().mistake).toEqual(mistakeCountReducer(undefined, action));
@@ -27,7 +28,7 @@ describe('rootReducer', ()=> {
 
   test('check that modified state of letterListReducer matches rootReducer', ()=> {
     action = {
-      type: 'ADD_GUESS',
+      type: c.ADD_GUESS,
       value: 'e'
     };
     store.dispatch(action);
@@ -36,7 +37,7 @@ describe('rootReducer', ()=> {
 
   test('check that modified state of answerReducer matches rootReducer', ()=> {
     action = {
-      type: 'SET_ANSWER'
+      type: c.SET_ANSWER
     };
     store.dispatch(action);
     expect(masterWordList.includes(store.getState().answer)).toBe(true);

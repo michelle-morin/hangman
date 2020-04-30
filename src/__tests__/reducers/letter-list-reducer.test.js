@@ -1,4 +1,5 @@
 import letterListReducer from '../../reducers/letter-list-reducer';
+import * as c from '../../actions/ActionTypes';
 
 describe('letterListReducer', ()=> {
 
@@ -9,7 +10,7 @@ describe('letterListReducer', ()=> {
   test('should add a letter to guessed letters set data object', ()=> {
     const value = 'e';
     const action = {
-      type: 'ADD_GUESS',
+      type: c.ADD_GUESS,
       value: value
     };
     expect(letterListReducer(new Set([]), action)).toContain('e');
@@ -17,7 +18,7 @@ describe('letterListReducer', ()=> {
 
   test('should reset guessed list to a new Set data object', () => {
     const action = {
-      type: 'RESET_GUESSES'
+      type: c.RESET_GUESSES
     };
     expect(letterListReducer(new Set([]), action)).toEqual(new Set ([]));
   });
