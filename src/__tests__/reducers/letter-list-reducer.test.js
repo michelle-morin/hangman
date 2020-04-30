@@ -15,4 +15,10 @@ describe('letterListReducer', ()=> {
     expect(letterListReducer(new Set([]), action)).toContain('e');
   });
 
+  test('should reset guessed list to a new Set data object', () => {
+    const action = {
+      type: 'RESET_GUESSES'
+    };
+    expect(letterListReducer(new Set([]), action)).toEqual(new Set ([]));
+  });
 });

@@ -3,6 +3,9 @@ export default (state = new Set([]), action) => {
     case 'ADD_GUESS':
       const newGuessSet = state.add(action.value);
       return newGuessSet;
+    case 'RESET_GUESSES':
+      const resetSet = new Set([]);
+      return resetSet;
     default:
       return state;
   }

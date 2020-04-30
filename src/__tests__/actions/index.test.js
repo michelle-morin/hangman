@@ -17,4 +17,14 @@ describe('hangman actions', () => {
       value: 'e'
     });
   });
+  it('resetGuesses should create RESET_GUESSES action', () => {
+    expect(actions.resetGuesses()).toEqual({
+      type: 'RESET_GUESSES'
+    });
+  });
+  it('resetMistakes should create RESET_MISTAKES action', () => {
+    expect(actions.resetMistakes()).toEqual({
+      type: 'RESET_MISTAKES'
+    });
+  });
 });

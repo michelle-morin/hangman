@@ -13,4 +13,10 @@ describe('mistakeCountReducer', ()=> {
     expect(mistakeCountReducer(0, action)).toEqual(1);
   });
 
+  test('should reset mistake count to 0', () => {
+    const action = {
+      type: 'RESET_MISTAKES'
+    };
+    expect(mistakeCountReducer(4, action)).toEqual(0);
+  });
 });
