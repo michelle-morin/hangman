@@ -4,7 +4,7 @@
 
 ## Description
 
-_This application is a simple hangman game, built using React and Redux._
+_This application is a simple hangman game, built using React and Redux. Deployed on [GH Pages](https://michelle-morin.github.io/hangman/)_
 
 ## Component Tree / Wireframe
 ![component tree](componenttree.jpg)
