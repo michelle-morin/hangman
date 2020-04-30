@@ -11,7 +11,7 @@ export const addGuess = (value) => ({
   value: value
 });
 export const resetGuesses = () => ({
-  type: c.RESET_GUESSES,
+  type: c.RESET_GUESSES
 });
 export const resetMistakes = () => ({
   type: c.RESET_MISTAKES
