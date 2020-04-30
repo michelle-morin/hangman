@@ -8,7 +8,8 @@ export const masterWordList = [
   'jewel',
   'flower',
   'hibiscus',
-  'cider'
+  'cider',
+  'haru'
 ];
 
 export function randomWord() {
