@@ -13,7 +13,7 @@ describe('rootReducer', ()=> {
     expect(rootReducer({}, {type: null})).toEqual({
       guessed: new Set([]),
       mistake: 0,
-      answer: null
+      answer: "haru"
     });
   });
 
