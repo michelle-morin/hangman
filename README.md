@@ -11,7 +11,7 @@ _This application is a simple hangman game, built using React and Redux. Deploye
 
 ## Specification User Stories
 * As a user, I want to be able to guess a letter of a word.
-* As a user, I want only letters than I haven't guessed to be shown as options.
+* As a user, I want only letters that I haven't guessed to be shown as options.
 * As a user, I want my incorrectly guessed letters to add a new body part to the hangman.
 * As a user, I want to be notified if I correctly guess the word.
 * As a user, I want to be notified when I lose.
