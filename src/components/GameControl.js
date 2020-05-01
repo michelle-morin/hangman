@@ -4,9 +4,9 @@ import { images } from './HangmanImages';
 import LetterList from './LetterList.js';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as a from './../actions';
+import * as a from '../actions';
 
-class Hangman extends React.Component {
+class GameControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -63,7 +63,7 @@ class Hangman extends React.Component {
       color: '#17a2b8',
       fontSize: '3em'
     };
-    const hangmanStyles = {
+    const gameStyles = {
       marginTop: '2%',
       display: 'flex',
       justifyContent: 'space-around',
@@ -72,7 +72,7 @@ class Hangman extends React.Component {
 
     return (
       <React.Fragment>
-        <Container style={hangmanStyles}>
+        <Container style={gameStyles}>
           <div>
             <img style={imgStyles} src={images[this.props.mistake]} alt="current state of hangman"></img>
           </div>
@@ -90,7 +90,7 @@ class Hangman extends React.Component {
   }
 }
 
-Hangman.propTypes = {
+GameControl.propTypes = {
   guessed: PropTypes.object,
   mistake: PropTypes.number,
   answer: PropTypes.string
@@ -104,6 +104,6 @@ const mapStateToProps = (state) => {
   }
 };
 
-Hangman = connect(mapStateToProps)(Hangman);
+GameControl = connect(mapStateToProps)(GameControl);
 
-export default Hangman;
+export default GameControl;

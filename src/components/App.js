@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import Hangman from './Hangman';
+import GameControl from './GameControl';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
   return (
     <div style={appStyles}>
       <Header />
-      <Hangman />
+      <GameControl />
     </div>
   );
 }
