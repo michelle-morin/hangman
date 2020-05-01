@@ -80,7 +80,7 @@ class GameControl extends React.Component {
             <p>incorrect guesses: {this.props.mistake} of 6</p>
             <p>Guess the word:</p>
             <p>{!gameOver ? this.guessedWord() : this.props.answer}</p>
-            {!gameOver ? <LetterList onLetterClick={this.handleGuess} /> : <p>GAME OVER</p>}
+            {!gameOver ? <LetterList guessedLetters={this.props.guessed} onLetterClick={this.handleGuess} /> : <p>GAME OVER</p>}
             <p style={winStyles}>{gameStatus}</p>
             <Button variant="outline-info" onClick={this.resetGame}>Restart game</Button>
           </div>

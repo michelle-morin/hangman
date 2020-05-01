@@ -47,7 +47,7 @@ function LetterList(props) {
     <React.Fragment>
       <div style={letterStyles}>
         {Object.keys(masterLetterList).map((key) => 
-          <Letter currentLetter={masterLetterList[key]} whenLetterClicked={props.onLetterClick} key={key} id={key} />
+          (props.guessedLetters.has(masterLetterList[key])) ? "" : <Letter currentLetter={masterLetterList[key]} whenLetterClicked={props.onLetterClick} key={key} id={key} />
         )}
       </div>
     </React.Fragment>
@@ -55,7 +55,8 @@ function LetterList(props) {
 };
 
 LetterList.propTypes = {
-  onLetterClick: PropTypes.func
+  onLetterClick: PropTypes.func,
+  guessedLetters: PropTypes.object
 }
 
 export default LetterList;
