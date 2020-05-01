@@ -7,7 +7,7 @@
 _This application is a simple hangman game, built using React and Redux. Deployed on [GH Pages](https://michelle-morin.github.io/hangman/)_
 
 ## Component Tree / Wireframe
-![component tree](componenttree.jpg)
+![component tree](ComponentTree.jpg)
 
 ## Specification User Stories
 * As a user, I want to be able to guess a letter of a word.
