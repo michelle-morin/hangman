@@ -58,6 +58,8 @@ _Open the contents of the directory in a text editor or IDE of your choice (e.g.
 * React
 * Redux
 * React-Redux
+* React-Bootstrap
+* Jest
 
 ### License
 
